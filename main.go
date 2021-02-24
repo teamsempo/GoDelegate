@@ -17,6 +17,9 @@ import (
 var ProductionHosts Hosts = []Host{
 	{name: "pacific", url: "https://pacific.withsempo.com"},
 	{name: "demo", url: "https://demo.withsempo.com"},
+	{name: "celo", url: "https://celo.withsempo.com"},
+	{name: "png", url: "https://png.withsempo.com"},
+	{name: "dev", url: "https://dev.withsempo.com"},
 }
 
 //Host provides the structure for user-configured hosts
