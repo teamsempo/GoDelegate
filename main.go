@@ -38,7 +38,7 @@ type CustomResponse struct {
 }
 
 //CheckForValidAuth checks the provided credentials against a provided host, returning the host-provided json
-// if auth is valid, or 'false' if the credentials are not valid
+// if auth is valid, or 'false' if the credentials are not valid or if there's a server error (or any other issue)
 func CheckForValidAuth(host Host, inputBody string) (json []byte, ok bool) {
 
 	var jsonStr = []byte(inputBody)
@@ -69,7 +69,7 @@ func CheckForValidAuth(host Host, inputBody string) (json []byte, ok bool) {
 	return body, true
 }
 
-//ConcurrentRespnse adds concurrency capacity to check for valid auth, using the channel c to return the final json body
+//ConcurrentRespnse adds concurrency capacity to check for valid auth, using the channel respCh to return the final json body
 // Or setting the waitgroup to done if there is an error
 func ConcurrentRespnse(host Host, inputBody string, respCh chan []byte, wg *sync.WaitGroup) {
 	respbody, ok := CheckForValidAuth(host, inputBody)
