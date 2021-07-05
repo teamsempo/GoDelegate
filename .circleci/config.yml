@@ -29,3 +29,12 @@ jobs:
             gotestsum --junitfile /tmp/test-reports/unit-tests.xml
       - store_test_results:
           path: /tmp/test-reports
+
+workflows:
+  version: 2
+  main_workflow:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
