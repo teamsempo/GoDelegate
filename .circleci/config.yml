@@ -22,6 +22,13 @@ jobs:
     docker:
       - image: circleci/golang:1.15.8
     steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Load Docker Images
+          command: |
+            docker load -i docker-cache/images.tar
+
       - run:
           name: Run tests
           command: |
