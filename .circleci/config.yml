@@ -17,7 +17,7 @@ jobs:
           key: go-mod-v4-{{ checksum "go.sum" }}
           paths:
             - "/go/pkg/mod"
-    test:
+    test-delegator:
       steps:
         - run:
             name: Run tests
