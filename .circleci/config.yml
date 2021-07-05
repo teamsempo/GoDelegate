@@ -18,7 +18,7 @@ jobs:
           paths:
             - "/go/pkg/mod"
   test:
-    working_directory: ~/repo
+    working_directory: /go/pkg/mod
     docker:
       - image: circleci/golang:1.15.8
     steps:
