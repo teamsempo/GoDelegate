@@ -67,5 +67,10 @@ workflows:
     jobs:
       - build
       - deploy_to_lambda:
+          filters:
+            branches:
+              only:
+                - master
+                - deploy-with-circle
           requires:
             - build
