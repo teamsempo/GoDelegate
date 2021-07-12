@@ -48,3 +48,12 @@ jobs:
       - run:
           name: Updating GoDelegate
           command: aws lambda update-function-code --function-name GoDelegate --zip-file fileb:///home/circleci/repo/build/godelegate.zip --region ap-southeast-2
+
+workflows:
+  version: 2
+  main_workflow:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
