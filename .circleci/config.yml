@@ -26,7 +26,7 @@ jobs:
           path: /tmp/test-reports
 
       - run: go build
-      - run: zip godelegate.zip godelegate
+      - run: zip  ./build/godelegate.zip godelegate
 
       - store_artifacts:
           path: ./build/godelegate.zip
