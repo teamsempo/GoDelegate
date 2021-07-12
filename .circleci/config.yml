@@ -39,12 +39,6 @@ jobs:
       - store_artifacts:
           path: godelegate.zip
           destination: godelegate.zip
-      - save_cache:
-          key: v1-build-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-              - build
-      - restore_cache:
-          key: v1-build-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Update
           command: sudo apt-get update
@@ -54,9 +48,6 @@ jobs:
       - run:
           name: Install awscli
           command: sudo pip install awscli
-      - run:
-          name: login
-          command: eval $(aws ecr get-login --no-include-email --region ${REPOSITORY_REGION});
       - run:
           name: Updating GoDelegate
           command: aws lambda update-function-code --function-name GoDelegate --zip-file fileb://./godelegate.zip --region ap-southeast-2
