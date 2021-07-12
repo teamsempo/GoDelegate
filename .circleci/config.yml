@@ -46,8 +46,10 @@ jobs:
       - restore_cache:
           key: v1-build-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
-          name: Install PIP
+          name: Update
           command: sudo apt-get update
+      - run:
+          name: Install PIP
           command: sudo apt-get install python-pip python-dev --fix-missing
       - run:
           name: Install awscli
