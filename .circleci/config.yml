@@ -47,7 +47,8 @@ jobs:
           key: v1-build-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Install PIP
-          command: sudo apt-get install python-pip python-dev
+          command: sudo apt-get update
+          command: sudo apt-get install python-pip python-dev --fix-missing
       - run:
           name: Install awscli
           command: sudo pip install awscli
