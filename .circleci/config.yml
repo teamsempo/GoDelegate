@@ -31,3 +31,20 @@ jobs:
       - store_artifacts:
           path: godelegate.zip
           destination: godelegate.zip
+
+      - save_cache:
+          key: v1-build-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+              - build
+
+  deploy_to_lambda:
+    docker:
+      - image: circleci/golang:1.15.8
+    working_directory: ~/repo
+    steps:
+      - restore_cache:
+          key: v1-build-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+
+      - run:
+          name: Updating GoDelegate
+          command: aws lambda update-function-code --function-name GoDelegate --zip-file fileb:///home/circleci/repo/build/godelegate.zip --region ap-southeast-2
