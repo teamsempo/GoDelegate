@@ -26,7 +26,9 @@ jobs:
       - run:
           name: Run coverage
           command: go test -race -coverprofile=coverage.out -covermode=atomic
-
+      - run:
+          name: Upload coverage to Codecov
+          command: bash <(curl -s https://codecov.io/bash)
       - store_test_results:
           path: /tmp/test-reports
 
@@ -55,9 +57,6 @@ jobs:
       - run:
           name: Updating GoDelegate
           command: aws lambda update-function-code --function-name GoDelegate --zip-file fileb://./godelegate.zip --region ap-southeast-2
-      - run:
-          name: Upload coverage to Codecov
-          command: bash <(curl -s https://codecov.io/bash)
 
 workflows:
   version: 2
