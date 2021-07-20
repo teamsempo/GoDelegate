@@ -22,7 +22,7 @@ jobs:
           name: Run tests
           command: |
             mkdir -p /tmp/test-reports
-            gotestsum --junitfile /tmp/test-reports/unit-tests.xml
+            gotestsum --junitfile /tmp/test-reports/unit-tests.xml -race -coverprofile=coverage.out -covermode=atomic
       - store_test_results:
           path: /tmp/test-reports
 
