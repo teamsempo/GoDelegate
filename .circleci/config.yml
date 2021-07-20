@@ -55,6 +55,9 @@ jobs:
       - run:
           name: Updating GoDelegate
           command: aws lambda update-function-code --function-name GoDelegate --zip-file fileb://./godelegate.zip --region ap-southeast-2
+      - run:
+          name: Upload coverage to Codecov
+          command: bash <(curl -s https://codecov.io/bash)
 
 workflows:
   version: 2
