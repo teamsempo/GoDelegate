@@ -71,3 +71,4 @@ workflows:
                 - deploy-with-circle
           requires:
             - build
+            - test_deploy

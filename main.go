@@ -105,6 +105,7 @@ func HandleLambdaEvent(
 	headers := make(map[string]string)
 
 	headers["Access-Control-Allow-Origin"] = "*"
+	headers["TEST_HEADER"] = "*"
 	headers["Access-Control-Allow-Headers"] = "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token"
 
 	// The WaitGroup will trigger the waitchannel if all host requests fail
