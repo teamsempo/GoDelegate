@@ -15,8 +15,8 @@ import (
 
 //ProductionHosts should be configured to include all hosts the mobile can connect to
 var ProductionHosts Hosts = []Host{
-	{name: "pacific", url: "https://pacific.withsempo.com"},
 	{name: "demo", url: "https://demo.withsempo.com"},
+	{name: "pacific", url: "https://pacific.withsempo.com"},
 	{name: "celo", url: "https://celo.withsempo.com"},
 	{name: "png", url: "https://png.withsempo.com"},
 	{name: "dev", url: "https://dev.withsempo.com"},
@@ -56,6 +56,16 @@ func CheckForValidAuth(host Host, inputBody string) (json []byte, ok bool) {
 	}
 
 	defer resp.Body.Close()
+	fmt.Println("----")
+	fmt.Println("jsonStr")
+	fmt.Println(jsonStr)
+	fmt.Println("resp")
+	fmt.Println(resp)
+	fmt.Println("resp.Body")
+	fmt.Println(resp.Body)
+	fmt.Println("resp.StatusCode")
+	fmt.Println(resp.StatusCode)
+	fmt.Println("----")
 
 	if !(resp.StatusCode >= 200 && resp.StatusCode <= 299) {
 		return nil, false
