@@ -69,6 +69,6 @@ workflows:
               only:
                 - master
                 - deploy-with-circle
+                - test_deploy
           requires:
             - build
-            - test_deploy
