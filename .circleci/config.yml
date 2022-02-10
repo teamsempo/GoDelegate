@@ -46,6 +46,9 @@ jobs:
           path: godelegate.zip
           destination: godelegate.zip
       - run:
+          name: Update
+          command: sudo apt-get update
+      - run:
           name: Install PIP
           command: sudo apt-get install python3-pip python3-dev --fix-missing
       - run:
