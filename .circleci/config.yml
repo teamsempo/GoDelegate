@@ -49,9 +49,6 @@ jobs:
           name: Update
           command: sudo apt-get update
       - run:
-          name: Install PIP
-          command: sudo apt-get install python-pip python-dev --fix-missing
-      - run:
           name: Install awscli
           command: sudo pip install awscli
       - run:
@@ -69,5 +66,6 @@ workflows:
               only:
                 - master
                 - deploy-with-circle
+                - fix-circle-config
           requires:
             - build
