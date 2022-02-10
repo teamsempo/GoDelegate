@@ -47,7 +47,7 @@ jobs:
           destination: godelegate.zip
       - run:
           name: Install PIP
-          command: sudo apt-get install python-pip python-dev --fix-missing
+          command: sudo apt-get install python3-pip python3-dev --fix-missing
       - run:
           name: Install awscli
           command: sudo pip install awscli
