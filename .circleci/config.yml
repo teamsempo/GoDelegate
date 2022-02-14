@@ -5,7 +5,7 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/golang:1.15.8
+      - image: circleci/golang:1.16
     steps:
       - checkout
       - restore_cache:
@@ -35,7 +35,7 @@ jobs:
 
   deploy_to_lambda:
     docker:
-      - image: circleci/golang:1.15.8
+      - image: circleci/golang:1.16
     working_directory: ~/repo
     steps:
       - checkout
@@ -50,7 +50,7 @@ jobs:
           command: sudo apt-get update
       - run:
           name: Install PIP
-          command: sudo apt-get install python-pip python-dev --fix-missing
+          command: sudo apt-get install python3-pip python3-dev --fix-missing
       - run:
           name: Install awscli
           command: sudo pip install awscli
@@ -69,5 +69,6 @@ workflows:
               only:
                 - master
                 - deploy-with-circle
+                - fix-circle-config
           requires:
             - build
