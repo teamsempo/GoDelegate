@@ -68,7 +68,6 @@ workflows:
             branches:
               only:
                 - master
-                - deploy-with-circle
-                - fix-circle-config
+                - cors-change
           requires:
             - build
