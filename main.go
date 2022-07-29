@@ -16,9 +16,7 @@ import (
 //ProductionHosts should be configured to include all hosts the mobile can connect to
 var ProductionHosts Hosts = []Host{
 	{name: "slb", url: "https://slb.withsempo.com"},
-	{name: "vut", url: "https://vut.withsempo.com"},
 	{name: "zwe", url: "https://zwe.withsempo.com"},
-	{name: "ugx", url: "https://ugx.withsempo.com"},
 	{name: "demo", url: "https://demo.withsempo.com"},
 	{name: "dev", url: "https://dev.withsempo.com"},
 }
