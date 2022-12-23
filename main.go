@@ -19,6 +19,7 @@ var ProductionHosts Hosts = []Host{
 	{name: "zwe", url: "https://zwe.withsempo.com"},
 	{name: "demo", url: "https://demo.withsempo.com"},
 	{name: "dev", url: "https://dev.withsempo.com"},
+	{name: "mwk", url: "https://mwk.withsempo.com"},
 }
 
 //Host provides the structure for user-configured hosts
